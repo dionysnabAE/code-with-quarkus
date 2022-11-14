@@ -40,6 +40,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: .
           file: ./src/main/docker/Dockerfile.jvm
           push: true
-          tags: user/app:latest
+          tags: ${{ steps.meta.outputs.tags }}
